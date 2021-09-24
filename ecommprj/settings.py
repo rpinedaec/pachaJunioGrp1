@@ -136,11 +136,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # )
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-AWS_MEDIA_STORAGE_BUCKET_NAME = 'proypacha3static'
-AWS_MEDIA_S3_REGION_NAME = 'us-east-2'
-AWS_MEDIA_ACCESS_KEY_ID = 'AKIA4VMT4HSNJOTRKU7I'
-AWS_MEDIA_SECRET_ACCESS_KEY = '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'
-AWS_MEDIA_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_MEDIA_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = 'ecommprj.custom_storages.MediaStorage'
-
+AWS_ACCESS_KEY_ID = 'AKIAYI4N3OHS3VYMDD7M'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'pacha11'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+  
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 django_heroku.settings(locals())
