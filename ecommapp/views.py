@@ -181,7 +181,7 @@ def payCulqi(request):
         descrpcion = 'Pago pachaqtec curso online'
         moneda = request.POST['moneda']
 
-        auth_token='sk_test_c4f109e5cf1e1161'
+        auth_token='sk_test_SWyklAB8rIyjXmje'
         hed = {'Authorization': 'Bearer ' + auth_token}
         data = {
             'amount': monto,
