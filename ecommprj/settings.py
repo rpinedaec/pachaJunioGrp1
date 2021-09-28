@@ -59,7 +59,7 @@ ROOT_URLCONF = 'ecommprj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "ecommapp/template")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-pe'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Lima'
 
 USE_I18N = True
 
@@ -136,11 +136,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # )
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-AWS_MEDIA_STORAGE_BUCKET_NAME = 'proypacha3static'
-AWS_MEDIA_S3_REGION_NAME = 'us-east-2'
-AWS_MEDIA_ACCESS_KEY_ID = 'AKIA4VMT4HSNJOTRKU7I'
-AWS_MEDIA_SECRET_ACCESS_KEY = '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'
-AWS_MEDIA_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_MEDIA_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = 'ecommprj.custom_storages.MediaStorage'
-
+AWS_ACCESS_KEY_ID = 'AKIARUR5FYMM6LWDKSYM'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'pacha12'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+  
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 django_heroku.settings(locals())
