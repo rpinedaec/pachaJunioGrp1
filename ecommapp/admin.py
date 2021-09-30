@@ -1,8 +1,7 @@
 from django.contrib import admin
+from .models import cupon, estado_pedido, categoria, cliente, producto, pedido, detalle_pedido
 
-from ecommapp.models import cupon, producto, categoria, pedido, detalle_pedido, cliente
-from ecommapp.models import estado_pedido
-
+# Register your models here.
 class cuponAdmin(admin.ModelAdmin):
     list_display = ('codigo', 'descripcion', 'descuento' )
 

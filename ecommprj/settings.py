@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'ecommprj.urls'
@@ -108,9 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-pe'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Lima'
 
 USE_I18N = True
 
@@ -136,9 +137,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # )
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-AWS_ACCESS_KEY_ID = 'AKIAYI4N3OHS3VYMDD7M'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'pacha11'
+AWS_ACCESS_KEY_ID = 'AKIARUR5FYMM6LWDKSYM'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'pacha12'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',

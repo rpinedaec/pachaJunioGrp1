@@ -1,7 +1,5 @@
 from rest_framework import serializers
-
-from ecommapp.models import producto, categoria, cupon, cliente, pedido, detalle_pedido
-from ecommapp.models import estado_pedido
+from .models import producto, categoria, cupon, cliente, pedido, detalle_pedido, estado_pedido
 
 class ProductoSerializer(serializers.ModelSerializer):
     def retrieve(self, data):

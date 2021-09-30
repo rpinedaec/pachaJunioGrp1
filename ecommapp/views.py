@@ -1,4 +1,3 @@
-#from django.shortcuts import render
 from rest_framework import viewsets
 from ecommapp.serializers import ProductoSerializer, CategoriaSerializer, CuponSerializer
 from ecommapp.serializers import PedidoSerializer, ClienteSerializer, detallePedidoSerializer, estadoPedidoSerializer
@@ -9,7 +8,6 @@ from ecommapp.models import producto, categoria, cupon, cliente, pedido, detalle
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-
 
 import json
 from django.http import JsonResponse
@@ -181,7 +179,7 @@ def payCulqi(request):
         descrpcion = 'Pago pachaqtec curso online'
         moneda = request.POST['moneda']
 
-        auth_token='sk_test_SWyklAB8rIyjXmje'
+        auth_token='sk_test_49e25de2e30c78a3'
         hed = {'Authorization': 'Bearer ' + auth_token}
         data = {
             'amount': monto,
