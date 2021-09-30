@@ -20,7 +20,6 @@ class categoria(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class cliente(models.Model):
     #username = models.CharField(max_length=200) 
     nombre = models.CharField(max_length=200)

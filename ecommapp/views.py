@@ -198,4 +198,3 @@ def payCulqi(request):
         return JsonResponse(charge.json(), safe=False)
 
     return JsonResponse("only POST method", safe=False)
-
