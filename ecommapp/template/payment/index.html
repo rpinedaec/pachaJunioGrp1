@@ -44,7 +44,7 @@ function culqi() {
       // Imprimir Token
       $.ajax({
          type: 'POST',
-         url: 'https://89cd-190-239-64-10.ngrok.io/payCulqi/',
+         url: 'https://pure-caverns-83866.herokuapp.com/payCulqi/',
          data: { 
             csrfmiddlewaretoken: '{{ csrf_token }}', 
             token: Culqi.token.id, 
