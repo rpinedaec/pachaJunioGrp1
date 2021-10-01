@@ -16,6 +16,7 @@ from django.views.decorators.http import require_http_methods
 from django.shortcuts import render
 import requests
 from django.template import RequestContext
+from import_export.admin import ImportExportModelAdmin
 
 
 import pprint
@@ -28,7 +29,7 @@ import pprint
 #     serializer_class = ProductoSerializer
 
 #@csrf_exempt
-class ProductoViewSet(viewsets.ModelViewSet):
+class ProductoViewSet(viewsets.ModelViewSet, ImportExportModelAdmin):
     #permission_classes = [IsAuthenticated,]
     def get_queryset(self):
         queryset = producto.objects.all()
