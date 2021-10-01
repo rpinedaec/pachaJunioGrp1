@@ -13,8 +13,9 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 import requests
+from django.template import RequestContext
 
 import pprint
 
@@ -167,7 +168,8 @@ def payment(request):
     return render(request, "payment/index.html")
 
 def product(request):
-    return render(request, "product/index.html")
+    products = producto.objects.all()
+    return render_to_response("product/index.html", {'products' :products},Context_instance=RequestContext(request))
 
 
 @csrf_exempt

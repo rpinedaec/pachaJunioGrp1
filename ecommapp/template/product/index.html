@@ -9,15 +9,23 @@
 </head>
 <body>
 <div class="container">
-    <h1>Prueba1</h1>
-    <a id="miBoton" class="btn btn-primary" href="#" >Pay</a>
-    <br/><br/><br/>
-    <div class="panel panel-default" id="response-panel">
-        <div class="panel-heading">Response</div>
-        <div class="panel-body" id="response">
-        </div>
-    </div>
+    <h1>Productos</h1>
+    {% for p in posts %}
+    <p>p</p>
+    {% endfor %}
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="{% static 'product/waitMe.min.js' %}"></script>
 <script>
+   $('#miBoton').on('click', function (e) {
+    var url="https://thawing-bayou-65303.herokuapp.com/producto/"
+    $.ajax({
+         type: 'GET',
+         url: url,
+         datatype: 'json',
+         success: function(res){  
+             var result = ""
+        console.log(res.constructor) 
+        } })
+} )
+</script>
