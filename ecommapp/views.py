@@ -17,6 +17,7 @@ from django.shortcuts import render
 import requests
 from django.template import RequestContext
 from import_export.admin import ImportExportModelAdmin
+from import_export import resources
 
 
 import pprint
@@ -29,7 +30,15 @@ import pprint
 #     serializer_class = ProductoSerializer
 
 #@csrf_exempt
+class productoResource (resources.ModelResource):
+
+    class Meta:
+        model = producto
+
 class ProductoViewSet(viewsets.ModelViewSet, ImportExportModelAdmin):
+
+    resource_class = productoResource   
+
     #permission_classes = [IsAuthenticated,]
     def get_queryset(self):
         queryset = producto.objects.all()
