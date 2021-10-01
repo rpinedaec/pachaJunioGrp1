@@ -166,6 +166,10 @@ def loginCliente(request):
 def payment(request):
     return render(request, "payment/index.html")
 
+def product(request):
+    return render(request, "product/index.html")
+
+
 @csrf_exempt
 def payCulqi(request):
 
