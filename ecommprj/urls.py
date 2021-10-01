@@ -42,6 +42,6 @@ urlpatterns = [
     # path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     url(r'^payCulqi/', payCulqi, name='payCulqi'),
-    url(r'^payment/', product, name='payment'),
-    url(r'^product-get/', product, name='product')
+    url(r'^payment/', payment, name='payment'),
+    url(r'^productGet/', product, name='product')
 ]
