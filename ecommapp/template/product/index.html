@@ -10,9 +10,23 @@
 <body>
 <div class="container">
     <h1>Productos</h1>
-    {% for p in posts %}
-    <p>p</p>
-    {% endfor %}
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th> 
+            <th>categoria</th>
+            <th>I.G.V</th>
+        </tr>
+            {% for product in post %}
+        <tr>
+            <td>{{product.nombre}}</td>
+            <td>{{product.descripcion}}</td>
+            <td>{{product.categoria}}</td>
+            <td>{{product.igv}}</td>
+        
+            </tr>
+            {% endfor %}
+        </table>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="{% static 'product/waitMe.min.js' %}"></script>
