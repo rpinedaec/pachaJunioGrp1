@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <title>Culqi Python</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'product/waitMe.min.css' %}" />
+</head>
+<body>
+<div class="container">
+    <h1>Productos</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th> 
+            <th>categoria</th>
+            <th>I.G.V</th>
+        </tr>
+            {% for product in products %}
+        <tr>
+            <td>{{product.nombre}}</td>
+            <td>{{product.descripcion}}</td>
+            <td>{{product.categoria}}</td>
+            <td>{{product.igv}}</td>
+        
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'product/waitMe.min.js' %}"></script>
+<script>
+   $('#miBoton').on('click', function (e) {
+    var url="https://thawing-bayou-65303.herokuapp.com/producto/"
+    $.ajax({
+         type: 'GET',
+         url: url,
+         datatype: 'json',
+         success: function(res){  
+             var result = ""
+        console.log(res.constructor) 
+        } })
+} )
+</script>

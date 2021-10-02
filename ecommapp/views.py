@@ -15,6 +15,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.shortcuts import render
 import requests
+from django.template import RequestContext
+from import_export.admin import ImportExportModelAdmin
+from import_export import resources
+
 
 import pprint
 
@@ -26,7 +30,15 @@ import pprint
 #     serializer_class = ProductoSerializer
 
 #@csrf_exempt
-class ProductoViewSet(viewsets.ModelViewSet):
+class productoResource (resources.ModelResource):
+
+    class Meta:
+        model = producto
+
+class ProductoViewSet(viewsets.ModelViewSet, ImportExportModelAdmin):
+
+    resource_class = productoResource   
+
     #permission_classes = [IsAuthenticated,]
     def get_queryset(self):
         queryset = producto.objects.all()
@@ -165,6 +177,11 @@ def loginCliente(request):
 
 def payment(request):
     return render(request, "payment/index.html")
+
+def product(request):
+    products = producto.objects.all()
+    return render(request, "product/index.html", {'products' :products})
+
 
 @csrf_exempt
 def payCulqi(request):
